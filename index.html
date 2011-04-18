@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      rest-easy.js
+      api-easy.js
     </title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <style>
@@ -204,14 +204,14 @@
   </head>
   <body>
     <div id="container">
-      <a href="http://github.com/indexzero/rest-easy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
+      <a href="http://github.com/indexzero/api-easy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
       <div id="background"></div>
       <table cellpadding="0" cellspacing="0">
         <thead>
           <tr>
             <th class="docs">
               <h1>
-                rest-easy.js
+                api-easy.js
               </h1>
             </th>
             <th class="code"></th>
@@ -228,7 +228,7 @@
               <div class="highlight">
                 <pre>
 <span class="cm">/*</span>
-<span class="cm"> * rest-easy.js: Top-level include for the rest-easy module.</span>
+<span class="cm"> * api-easy.js: Top-level include for the api-easy module.</span>
 <span class="cm"> *</span>
 <span class="cm"> * (C) 2011, Charlie Robbins</span>
 <span class="cm"> *</span>
@@ -265,10 +265,10 @@
                 <a class="pilcrow" href="#section-3">¶</a>
               </div>
               <h2>
-                RESTeasy.describe(text)
+                APIeasy.describe(text)
               </h2>
               <p>
-                This is the main (and sole) entry point for RESTeasy. It responds with an object literal that manages an underlying vows suite. Each call to <code>RESTeasy.describe()</code> will create a vows suite, with the corresponding <code>text</code> passed to this method.
+                This is the main (and sole) entry point for APIeasy. It responds with an object literal that manages an underlying vows suite. Each call to <code>APIeasy.describe()</code> will create a vows suite, with the corresponding <code>text</code> passed to this method.
               </p>
             </td>
             <td class="code">
@@ -345,7 +345,7 @@
                 Simple pathing for adding contextual description to sets of tests. Each call to discuss will create an object in the nested vows structure which has that text as the key in the parent. <strong>e.g.:</strong>
               </p>
               <pre>
-<code>RESTeasy.describe('your/awesome/api')
+<code>APIeasy.describe('your/awesome/api')
         .use('localhost', 8080)
         .discuss('When using your awesome API')
           .discuss('and an awesome resource')
@@ -523,7 +523,7 @@
                 Add HTTP Request-based Tests
               </h3>
               <p>
-                The <code>.get()</code>, <code>.post()</code>, <code>.put()</code>, <code>.del()</code>, and <code>.head()</code> methods add a new context and topic to the vows structure maintained by this RESTeasy suite. The nuts and bolts of this are in the "private" method <code>_request()</code>.
+                The <code>.get()</code>, <code>.post()</code>, <code>.put()</code>, <code>.del()</code>, and <code>.head()</code> methods add a new context and topic to the vows structure maintained by this APIeasy suite. The nuts and bolts of this are in the "private" method <code>_request()</code>.
               </p>
               <p>
                 Each method invocation returns the suite itself so that <code>.expect()</code> and other assertion method(s) can be called afterwards to add assertions to this context.
@@ -764,7 +764,7 @@
                 Run Your Tests
               </h3>
               <p>
-                Again, since we are managing a single vows suite in this object we should expose an easy way to export your tests to a given target without needing to call <code>restEasySuite.suite.export(module)</code>. You should only call this method once in a given test file.
+                Again, since we are managing a single vows suite in this object we should expose an easy way to export your tests to a given target without needing to call <code>apiEasySuite.suite.export(module)</code>. You should only call this method once in a given test file.
               </p>
               <p>
                 You can also call <code>.run()</code> which will run the specified suite just as if you were using vows directly.
@@ -809,7 +809,7 @@
                 Helpers and Utilities
               </h3>
               <p>
-                <code>_request()</code> exists for the sake of DRY and simplicity and is designed to handle a variety of interal usage(s) exposed indirectly through the <code>.get()</code>, <code>.post()</code>, <code>.put()</code>, <code>.del()</code> and <code>.head()</code>. Nothing to see here unless you're interested in improving RESTeasy itself.
+                <code>_request()</code> exists for the sake of DRY and simplicity and is designed to handle a variety of interal usage(s) exposed indirectly through the <code>.get()</code>, <code>.post()</code>, <code>.put()</code>, <code>.del()</code> and <code>.head()</code>. Nothing to see here unless you're interested in improving APIeasy itself.
               </p>
             </td>
             <td class="code">
@@ -1061,7 +1061,7 @@
                 <a class="pilcrow" href="#section-32">¶</a>
               </div>
               <p>
-                A simple function that performs a deep clone on the specified <code>obj</code>. We use this in RESTeasy to create multiple copies of the <code>options</code> passed to <code>request</code> because they are considered mutable by <code>request</code> and we strive to make each request idempotent.
+                A simple function that performs a deep clone on the specified <code>obj</code>. We use this in APIeasy to create multiple copies of the <code>options</code> passed to <code>request</code> because they are considered mutable by <code>request</code> and we strive to make each request idempotent.
               </p>
             </td>
             <td class="code">
